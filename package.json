@@ -2,10 +2,10 @@
     "name": "backendmarketplace",
     "version": "1.0.0",
     "description": "",
-    "main": "server.js",
+    "main": "app.js",
     "scripts": {
         "dev": "node app.js",
-        "test": "jest --forceExit --coverage"
+        "test": "jest --forceExit"
     },
     "keywords": [],
     "author": "",
