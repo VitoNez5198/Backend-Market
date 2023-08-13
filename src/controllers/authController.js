@@ -13,7 +13,7 @@ const register = async (req, res) => {
         throw new Error('No se pudo crear el usuario');
         }
         //RESPUESTA PARA DESPLEGAR NOMBRE DE USUARIO?
-        res.json(user);
+        res.status(201).json(user);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
