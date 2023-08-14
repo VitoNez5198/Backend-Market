@@ -4,7 +4,7 @@ const { getUsers, getUserById, getUserByEmail, updateUser, deleteUser } = requir
 const all = async (req, res) => {
     try {
         const artists = await getUsers();
-        res.json(artists);
+        res.status(200).json(artists);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -14,7 +14,7 @@ const all = async (req, res) => {
 const userLogued = async (req, res) => {
     try {
         const loguedUserData = await getUserByEmail(req.email);
-        res.json(loguedUserData);
+        res.status(200).json(loguedUserData);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -24,7 +24,7 @@ const userLogued = async (req, res) => {
 const oneUser = async (req, res) => {
     try {
         const user = await getUserById(req.params.id);
-        res.json(user);
+        res.status(200).json(user);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -34,7 +34,7 @@ const oneUser = async (req, res) => {
 const update = async (req, res) => {
     try {
         const user = await updateUser(req.params.id, req.username, req.email, req.password);
-        res.json(user);
+        res.status(204).json(user);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -43,7 +43,7 @@ const update = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const user = await deleteUser(req.params.id);
-        res.json(user);
+        res.status(204).json(user);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
