@@ -1,18 +1,8 @@
-const {getProductByID, getCartInfo, addProduct, addOne, sustractOne, getCarts, addOneOrMore, deleteProducts, paidCart} = require('../models/shoppingCart');
+const {getProductByID, getBuyInfo, addProduct, addOne, sustractOne, deleteProducts, paidBuy} = require('../models/shoppingBuys');
 
-
-const getAll = async (req, res) => {
+const oneBuy = async (req, res) => {
     try {
-        const allCarts = await getCarts();
-        res.json(allCarts);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-const oneCart = async (req, res) => {
-    try {
-        const products = await getCartInfo(req.params.id);
+        const products = await getBuyInfo(req.params.id);
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -49,12 +39,11 @@ const sustract = async (req, res) => {
 
 const paid = async (req, res) => {
     try {
-        const paid_products = await paidCart(req.params.id);
+        const paid_products = await paidBuy(req.params.id);
         res.json(paid_products);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
-
-module.exports = {getAll, oneCart, add, sustract, paid};
+module.exports = {oneBuy, add, sustract, paid};

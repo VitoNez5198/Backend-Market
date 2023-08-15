@@ -9,6 +9,7 @@ const verifiedArtistsRoutes = require('./src/routes/verifiedArtistsRoutes');
 const cartRoutes = require('./src/routes/cartRoutes');
 const favoritesRoutes = require('./src/routes/favoritesRoutes');
 const loggerMiddleware = require('./src/middlewares/logger.middleware')
+const buysRoutes = require('./src/routes/buysRoutes');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use('/artworks', artworksRoutes);
 app.use('/artist', verifiedArtistsRoutes);
 app.use('/cart', cartRoutes);
 app.use('/favorites', favoritesRoutes);
+app.use('/buys', buysRoutes);
 
 
 module.exports = app;

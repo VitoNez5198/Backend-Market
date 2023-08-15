@@ -61,13 +61,17 @@ CREATE TABLE cart_example (
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
-INSERT INTO cart_example (user_id, product_id, price, quantity) VALUES
-(2, 1, 9900, 3),
-(1, 3, 5700, 2),
-(2, 2, 8000, 4),
-(1, 1, 9900, 1),
-(3, 1, 9900, 2),
-(2, 4, 11900, 4);
+
+CREATE TABLE buys (    
+    user_id INT,
+    product_id INT,
+    price INT,
+    quantity INT DEFAULT 1,
+    paid boolean DEFAULT false,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
 
 
 
